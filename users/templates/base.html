@@ -5,10 +5,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    {% load livereload_tags %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}PasswordManager{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>{% block title %}Nord Pass{% endblock %}</title>
+    <link rel="stylesheet" href="../../static/css/reset.css?v={% now "U" %}">
+    <link rel="stylesheet" href="../../static/css/vars.css?v={% now "U" %}">
+    <link rel="stylesheet" href="../../static/css/style.css?v={% now "U" %}">
+    {% livereload_script %}
 </head>
 <body>
     <header>
@@ -25,7 +29,7 @@
         {% endif %}
       </div>
     </header>
-
+    <button class='secondary' value='test'>Bonjour</button>
     <main>      
       {% block content %}
       {% endblock %}
@@ -35,6 +39,6 @@
         <p>&copy; 2023 PasswordManager. All rights reserved.</p>
     </footer>
 
-</body>
+</body> 
 </html>
 
