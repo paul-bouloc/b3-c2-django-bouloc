@@ -130,3 +130,10 @@ LOGOUT_REDIRECT_URL = "dashboard"
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.dummy.DummyCache',
+        'FRONTEND': 'django.core.cache.backends.dummy.DummyCache'
+    }
+}
