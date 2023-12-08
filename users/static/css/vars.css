@@ -1,0 +1,386 @@
+
+
+:host, * {
+  --blue-50: #f0f9ff;
+  --blue-100: #e0f2fe;
+  --blue-200: #bae6fd;
+  --blue-300: #7dd3fc;
+  --blue-400: #38bdf8;
+  --blue-500: #0ea5e9;
+  --blue-600: #0284c7;
+  --blue-700: #0369a1;
+  --blue-800: #075985;
+  --blue-900: #0c4a6e;
+  --blue-1000: #083c5a;
+  --blue-1100: #052d45;
+  --blue-1200: #031d30;
+  --blue-1300: #010e1a;
+  
+  --grey-50: #f9fafb;
+  --grey-100: #f4f5f7;
+  --grey-200: #e5e7eb;
+  --grey-300: #d2d6dc;
+  --grey-400: #9fa6b2;
+  --grey-500: #6b7280;
+  --grey-600: #4b5563;
+  --grey-700: #374151;
+  --grey-800: #252f3f;
+  --grey-900: #161e2e;
+  --grey-1000: #0e1624;
+  --grey-1100: #070e18;
+  --grey-1200: #03060b;
+  --grey-1300: #000204;
+
+  --red-50:#fef2f2;
+  --red-100:#fee2e2;
+  --red-200:#fecaca;
+  --red-300:#fca5a5;
+  --red-400:#f87171;
+  --red-500:#ef4444;
+  --red-600:#dc2626;
+  --red-700:#b91c1c;
+  --red-800:#991b1b;
+  --red-900:#7f1d1d;
+  --red-1000:#661e1e;
+  --red-1100:#521b1b;
+  --red-1200:#3f1616;
+  --red-1300:#2c0f0f;
+
+  --green-50: #f7fee7;
+  --green-100: #ecfccb;
+  --green-200: #d9f99d;
+  --green-300: #bef264;
+  --green-400: #a3e635;
+  --green-500: #84cc16;
+  --green-600: #65a30d;
+  --green-700: #4d7c0f;
+  --green-800: #3f6212;
+  --green-900: #365314;
+  --green-1000: #2f481b;
+  --green-1100: #283a1f;
+  --green-1200: #202d23;
+  --green-1300: #1b2225;
+
+  --rounded-xs: 0.125rem;
+  --rounded-sm: 0.25rem;
+  --rounded-md: 0.375rem;
+  --rounded-lg: 0.5rem;
+  --rounded-xl: 0.75rem;
+  --rounded-2xl: 1rem;
+  --rounded-3xl: 1.5rem;
+  --rounded-full: 9999px;
+
+  --shadow-xs: 0 0 0 1px rgba(0, 0, 0, 0.05);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
+  --shadow-none: none;
+
+  --padding: 20px;
+  --padding-y: 20px 0;
+  --padding-x: 0 20px;
+
+
+
+  --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+  --font-size-6xl: 3.75rem;
+  --font-size-7xl: 4.5rem;
+  --font-size-8xl: 6rem;
+  --font-size-9xl: 8rem;
+
+  --font-weight-thin: 100;
+  --font-weight-extralight: 200;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  --font-weight-black: 900;
+
+  --font-color-primary: var(--blue-500);
+  --font-color-secondary: var(--grey-900);
+  --font-color-tertiary: var(--grey-500);
+  --font-color-quaternary: var(--grey-300);
+  --font-color-quinary: var(--grey-100);
+  --font-color-senary: #fff;
+
+  --font-color-primary-hover: var(--blue-600);
+  --font-color-secondary-hover: var(--grey-800);
+  --font-color-tertiary-hover: var(--grey-600);
+  --font-color-quaternary-hover: var(--grey-400);
+  --font-color-quinary-hover: var(--grey-200);
+
+  --font-color-primary-active: var(--blue-700);
+  --font-color-secondary-active: var(--grey-900);
+  --font-color-tertiary-active: var(--grey-700);
+  --font-color-quaternary-active: var(--grey-500);
+  --font-color-quinary-active: var(--grey-300);
+
+  --font-color-primary-disabled: var(--blue-400);
+  --font-color-secondary-disabled: var(--grey-400);
+  --font-color-tertiary-disabled: var(--grey-300);
+  --font-color-quaternary-disabled: var(--grey-200);
+  --font-color-quinary-disabled: var(--grey-100);
+
+  --font-color-primary-visited: var(--blue-700);
+  --font-color-secondary-visited: var(--grey-900);
+  --font-color-tertiary-visited: var(--grey-700);
+  --font-color-quaternary-visited: var(--grey-500);
+  --font-color-quinary-visited: var(--grey-300);
+
+  --font-color-primary-focus: var(--blue-700);
+  --font-color-secondary-focus: var(--grey-900);
+  --font-color-tertiary-focus: var(--grey-700);
+  --font-color-quaternary-focus: var(--grey-500);
+  --font-color-quinary-focus: var(--grey-300);
+
+  --font-color-primary-focus-within: var(--blue-700);
+  --font-color-secondary-focus-within: var(--grey-900);
+  --font-color-tertiary-focus-within: var(--grey-700);
+  --font-color-quaternary-focus-within: var(--grey-500);
+  --font-color-quinary-focus-within: var(--grey-300);
+
+  --font-color-primary-focus-visible: var(--blue-700);
+  --font-color-secondary-focus-visible: var(--grey-900);
+  --font-color-tertiary-focus-visible: var(--grey-700);
+  --font-color-quaternary-focus-visible: var(--grey-500);
+  --font-color-quinary-focus-visible: var(--grey-300);
+
+}
+
+button.primary, input[type="submit"] {
+  background-color: var(--blue-500);
+  color: var(--font-color-senary);
+  padding: .7rem 1rem;
+  border: none;
+  border-radius: var(--rounded-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+}
+
+button.primary:hover, input[type="submit"]:hover {
+  background-color: var(--blue-400);
+}
+
+button.primary:active, input[type="submit"]:active {
+  background-color: var(--blue-400);
+}
+
+button.primary:focus, input[type="submit"]:focus {
+  background-color: var(--blue-400);
+}
+
+button.primary:disabled, input[type="submit"]:disabled {
+  background-color: var(--grey-400);
+}
+
+button.secondary {
+  background-color: var(--grey-200);
+  color: var(--font-color-secondary);
+  padding: .7rem 1rem;
+  border: none;
+  border-radius: var(--rounded-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+}
+
+button.secondary:hover {
+  background-color: var(--grey-300);
+}
+
+button.secondary:active {
+  background-color: var(--grey-300);
+}
+
+button.secondary:focus {
+  background-color: var(--grey-300);
+}
+
+button.secondary:disabled {
+  background-color: var(--grey-400);
+  color: var(--grey-500);
+}
+
+input {
+  padding: .7rem 1rem;
+  border: 1px solid var(--grey-300);
+  border-radius: var(--rounded-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+  cursor: text !important;
+}
+
+input:focus {
+  border-color: var(--blue-500);
+  outline: solid 1px var(--blue-500);
+}
+
+input:disabled {
+  background-color: var(--grey-100);
+  color: var(--grey-500);
+}
+
+input[type="checkbox"] {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: var(--rounded-sm);
+  border: 1px solid var(--grey-300);
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+  background-color: var(--blue-500);
+  border-color: var(--blue-500);
+}
+
+input[type="checkbox"]:disabled {
+  background-color: var(--grey-100);
+  border-color: var(--grey-100);
+  cursor: not-allowed;
+}
+
+input[type="radio"] {
+  width: 1.5rem;
+  height: 1.5rem;
+  border-radius: 50%;
+  border: 1px solid var(--grey-300);
+  cursor: pointer;
+}
+
+input[type="radio"]:checked {
+  background-color: var(--blue-500);
+  border-color: var(--blue-500);
+}
+
+input[type="radio"]:disabled {
+  background-color: var(--grey-100);
+  border-color: var(--grey-100);
+  cursor: not-allowed;
+}
+
+select {
+  padding: .7rem 1rem;
+  border: 1px solid var(--grey-300);
+  border-radius: var(--rounded-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+select:focus {
+  border-color: var(--blue-500);
+  outline: none;
+}
+
+select:disabled {
+  background-color: var(--grey-100);
+  color: var(--grey-500);
+}
+
+a {
+  color: var(--font-color-primary);
+  text-decoration: none;
+  font-weight: var(--font-weight-semibold);
+}
+
+a:hover {
+  color: var(--font-color-primary-hover);
+}
+
+a:active {
+  color: var(--font-color-primary-active);
+}
+
+a:focus {
+  color: var(--font-color-primary-focus);
+}
+
+a:visited {
+  color: var(--font-color-primary-visited);
+}
+
+a:focus-within {
+  color: var(--font-color-primary-focus-within);
+}
+
+a:focus-visible {
+  color: var(--font-color-primary-focus-visible);
+}
+
+* {
+  font-size: 16px;
+}
+
+*, h1, h2, h3, h4, h5, h6, p, span, div, title, head, nav, section, article, footer, header, ul, li, a, img, button, input, textarea, form, label, select, option, table, tr, td, th, tbody, thead, tfoot, i, b, strong, em, small, code, pre, blockquote, q, cite, time, samp, sub, sup, del, ins, kbd, var, dfn, abbr, figure, figcaption, audio, video, canvas, details, summary, fieldset, legend, mark, progress, meter, output, ruby, rt, rp, summary, details, menu, command, keygen, datalist, embed, object, param, source, track, wbr {
+  font-family: var(--font-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-base);
+  color: var(--font-color-secondary);
+} 
+
+h1 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--font-color-secondary);
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--font-color-secondary);
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--font-color-secondary);
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--font-color-secondary);
+}
+
+h5 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--font-color-secondary);
+}
+
+h6 {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  color: var(--font-color-secondary);
+}
+
+p {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  color: var(--font-color-secondary);
+}
+
