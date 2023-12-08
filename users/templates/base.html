@@ -1,17 +1,40 @@
 <!--users/templates/base.html-->
 
-<h1>Welcome to Awesome Website</h1>
-<div>
-  {% if user.is_authenticated %}
-    <form action="{% url 'logout' %}" method="post">
-      {% csrf_token %}
-      <input type="submit" value="Logout">
-    </form>
-  {% else %}
-    <a href="{% url 'login' %}">Login</a>
-    <a href="{% url 'register' %}">Register</a>
-  {% endif %}
-</div>
+{% load static %}
 
-{% block content %}
-{% endblock %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Website{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <header>
+      <h1>Welcome to Awesome Website</h1>
+      <div>
+        {% if user.is_authenticated %}
+          <form action="{% url 'logout' %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Logout">
+          </form>
+        {% else %}
+          <a href="{% url 'login' %}">Login</a>
+          <a href="{% url 'register' %}">Register</a>
+        {% endif %}
+      </div>
+    </header>
+
+    <main>      
+      {% block content %}
+      {% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2023 PasswordManager. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
+
