@@ -12,7 +12,7 @@ def dashboard(request):
 def register(request):
     if request.method == "GET":
         return render(
-            request, "app/register.html",
+            request, "registration/register.html",
             {"form": CustomUserCreationForm}
         )
     elif request.method == "POST":
