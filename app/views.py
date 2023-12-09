@@ -7,12 +7,12 @@ from app.forms import CustomUserCreationForm
 
 
 def dashboard(request):
-    return render(request, "users/dashboard.html")
+    return render(request, "app/dashboard.html")
   
 def register(request):
     if request.method == "GET":
         return render(
-            request, "users/register.html",
+            request, "app/register.html",
             {"form": CustomUserCreationForm}
         )
     elif request.method == "POST":
