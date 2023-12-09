@@ -3,5 +3,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-Hello, {{ user.username|default:'Guest' }}!
+{% if user.is_authenticated %}
+  <style>
+    @import '../../static/css/dashboard.css'
+  </style>
+  <div class="dashboard-wrapper">
+    Hello
+  </div>
+{% else %}
+  Hello, {{ user.username|default:'Guest' }}!
+  This is the landing page.
+{% endif %}
 {% endblock %}
