@@ -20,7 +20,7 @@ form {
   background-color: #fff;
 }
 
-form p {
+form p, form div {
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -28,8 +28,13 @@ form p {
   box-sizing: border-box;
 }
 
-form p label {
+form p label, form div label {
   font-weight: 600;
+}
+
+form div .helptext {
+  font-size: 0.8rem;
+  color: var(--grey-400);
 }
 
 form input[type="submit"] {

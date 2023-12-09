@@ -3,13 +3,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Register</h2>
+<style>
+    @import '../../static/css/registration.css'
+</style>
+<div class="registration-wrapper">
+    <h2>Register</h2>
 
-<form method="post">
-    {% csrf_token %}
-    {{form}}
-    <input type="submit" value="Register">
-</form>
+    <form method="post">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" value="Register">
+    </form>
 
-<a href="{% url 'login' %}">Already have an account ? Login</a>
+    <a href="{% url 'login' %}">Already have an account ? Login</a>
+</div>
 {% endblock %}
