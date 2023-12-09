@@ -19,14 +19,15 @@
     {% livereload_script %}
 </head>
 <body>
-    <header>
-      <a href="/">
-        <img src="../../static/img/logo.svg" alt="logo" class="logo"/>
-      </a>
-      <div class="menu">
-        {% if user.is_authenticated %}
-        <p>Hello, {{ user.username }}!</p>
-        <form action="{% url 'logout' %}" method="post">
+    
+  <header>
+    <a href="/">
+      <img src="../../static/img/logo.svg" alt="logo" class="logo"/>
+    </a>
+    <div class="menu">
+      {% if user.is_authenticated %}
+      <p>Hello, {{ user.username }}!</p>
+      <form action="{% url 'logout' %}" method="post">
           {% csrf_token %}
           <button type="submit" class="secondary">
             Logout
@@ -35,21 +36,22 @@
             </svg>            
           </button>
         </form>
-          
+        
         {% else %}
-          <ul>
-            <li><a href="{% url 'login' %}">Login</a></li>
-            <li><a href="{% url 'register' %}">Register</a></li>
-          </ul>
+        <ul>
+          <li><a href="{% url 'login' %}">Login</a></li>
+          <li><a href="{% url 'register' %}">Register</a></li>
+        </ul>
         {% endif %}
       </div>
     </header>
-    <button class='secondary' value='test'>Bonjour</button>
+    <div class="body-wrapper">
     <main>      
       {% block content %}
       {% endblock %}
     </main>
 
+  </div>
     <footer>
         <p>&copy; 2023 PasswordManager. All rights reserved.</p>
     </footer>
