@@ -10,3 +10,34 @@
   background-color: #fff;
   border-radius: var(--rounded-3xl);
 }
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.password-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.password-list .password-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--padding);
+  border-radius: var(--rounded-md);
+  background-color: var(--grey-100);
+}
+
+.password-list .password-item.no-password {
+  justify-content: center;
+}

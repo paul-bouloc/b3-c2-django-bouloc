@@ -8,7 +8,21 @@
     @import '../../static/css/dashboard.css'
   </style>
   <div class="dashboard-wrapper">
-    Hello
+    <div class="dashboard-header">
+      <h4>Passwords</h4>
+      <button class="primary" onclick="location.href = '/add'">
+        Add
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#fff" class="w-6 h-6">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+        </svg>        
+      </button>
+    </div>
+
+    <div class="password-list">
+      <div class="password-item no-password">
+        No password yet.
+      </div
+    </div>
   </div>
 {% else %}
   Hello, {{ user.username|default:'Guest' }}!
