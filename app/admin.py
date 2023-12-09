@@ -1,5 +1,5 @@
 from django.contrib import admin
-from users.models import Passwords
+from app.models import Passwords
 
 # Register your models here.
 
