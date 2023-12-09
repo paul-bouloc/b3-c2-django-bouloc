@@ -9,23 +9,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}PasswordManager{% endblock %}</title>
+    <link rel="icon" href="../../static/img/logo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../static/img/logo.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="../../static/img/logo.png" type="image/png">
     <link rel="stylesheet" href="../../static/css/reset.css?v={% now "U" %}">
     <link rel="stylesheet" href="../../static/css/vars.css?v={% now "U" %}">
     <link rel="stylesheet" href="../../static/css/style.css?v={% now "U" %}">
+    <link rel="stylesheet" href="../../static/css/header.css?v={% now "U" %}">
     {% livereload_script %}
 </head>
 <body>
     <header>
-      <h1>Welcome to Awesome Website</h1>
-      <div>
+      <a href="/">
+        <img src="../../static/img/logo.svg" alt="logo" class="logo"/>
+      </a>
+      <div class="menu">
         {% if user.is_authenticated %}
-          <form action="{% url 'logout' %}" method="post">
-            {% csrf_token %}
-            <input type="submit" value="Logout">
-          </form>
+        <p>Hello, {{ user.username }}!</p>
+        <form action="{% url 'logout' %}" method="post">
+          {% csrf_token %}
+          <button type="submit" class="secondary">
+            Logout
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
+            </svg>            
+          </button>
+        </form>
+          
         {% else %}
-          <a href="{% url 'login' %}">Login</a>
-          <a href="{% url 'register' %}">Register</a>
+          <ul>
+            <li><a href="{% url 'login' %}">Login</a></li>
+            <li><a href="{% url 'register' %}">Register</a></li>
+          </ul>
         {% endif %}
       </div>
     </header>

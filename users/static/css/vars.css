@@ -167,57 +167,92 @@
 
 }
 
-button.primary, input[type="submit"] {
+button, button.primary, input[type="submit"] {
+  display: flex;
+  align-items: center;
+  gap: 5px;
   background-color: var(--blue-500);
   color: var(--font-color-senary);
   padding: .7rem 1rem;
   border: none;
   border-radius: var(--rounded-md);
   font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-semibold);
   cursor: pointer;
 }
 
-button.primary:hover, input[type="submit"]:hover {
+button svg {
+  width: 20px;
+}
+
+button, button.primary:hover, input[type="submit"]:hover {
   background-color: var(--blue-400);
 }
 
-button.primary:active, input[type="submit"]:active {
+button, button.primary:active, input[type="submit"]:active {
   background-color: var(--blue-400);
 }
 
-button.primary:focus, input[type="submit"]:focus {
+button, button.primary:focus, input[type="submit"]:focus {
   background-color: var(--blue-400);
 }
 
-button.primary:disabled, input[type="submit"]:disabled {
+button, button.primary:disabled, input[type="submit"]:disabled {
   background-color: var(--grey-400);
 }
 
-button.secondary {
+button.secondary, input[type="submit"].secondary {
   background-color: var(--grey-200);
   color: var(--font-color-secondary);
   padding: .7rem 1rem;
   border: none;
   border-radius: var(--rounded-md);
   font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
+  font-weight: var(--font-weight-semibold);
   cursor: pointer;
 }
 
-button.secondary:hover {
+button.secondary:hover, input[type="submit"].secondary:hover {
   background-color: var(--grey-300);
 }
 
-button.secondary:active {
+button.secondary:active, input[type="submit"].secondary:active {
   background-color: var(--grey-300);
 }
 
-button.secondary:focus {
+button.secondary:focus, input[type="submit"].secondary:focus {
   background-color: var(--grey-300);
 }
 
-button.secondary:disabled {
+button.secondary:disabled, input[type="submit"].secondary:disabled {
+  background-color: var(--grey-400);
+  color: var(--grey-500);
+}
+
+button.tertiary, input[type="submit"].tertiary {
+  background-color: transparent;
+  color: var(--font-color-secondary);
+  padding: .7rem 1rem;
+  border: none;
+  border-radius: var(--rounded-md);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+}
+
+button.tertiary:hover, input[type="submit"].tertiary:hover {
+  background-color: var(--grey-200);
+}
+
+button.tertiary:active, input[type="submit"].tertiary:active {
+  background-color: var(--grey-200);
+}
+
+button.tertiary:focus, input[type="submit"].tertiary:focus {
+  background-color: var(--grey-200);
+}
+
+button.tertiary:disabled, input[type="submit"].tertiary:disabled {
   background-color: var(--grey-400);
   color: var(--grey-500);
 }
@@ -302,7 +337,8 @@ select:disabled {
 
 a {
   color: var(--font-color-primary);
-  text-decoration: none;
+  text-decoration: underline;
+  text-underline-offset: 2px;
   font-weight: var(--font-weight-semibold);
 }
 
@@ -316,10 +352,6 @@ a:active {
 
 a:focus {
   color: var(--font-color-primary-focus);
-}
-
-a:visited {
-  color: var(--font-color-primary-visited);
 }
 
 a:focus-within {
