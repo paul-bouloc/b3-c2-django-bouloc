@@ -10,6 +10,9 @@ def dashboard(request):
     return render(request, "app/dashboard.html")
   
 def register(request):
+    if request.user.is_authenticated:
+        return redirect(reverse("login"))
+    
     if request.method == "GET":
         return render(
             request, "registration/register.html",
@@ -23,4 +26,9 @@ def register(request):
             return redirect(reverse("dashboard"))
         
 def add(request):
+    # If the user is not logged in, redirect to login page
+    if not request.user.is_authenticated:
+        return redirect(reverse("login"))
+    
+    # Otherwise, render the add page
     return render(request, "app/add.html")

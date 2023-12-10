@@ -12,7 +12,43 @@
   </div>
 
   <div class="add-form">
-    form
+    <form method="POST" action="add/submit" >
+      <div class="field">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" placeholder="Website" required>
+      </div>
+
+      <div class="field">
+        <label for="website">Website URL</label>
+        <input type="url" name="website" id="website" placeholder="www.google.com" required>
+      </div>
+
+      <div class="field">
+        <label for="login">Login</label>
+        <input type="text" name="login" id="login" placeholder="john.doe" required>
+      </div>
+
+      <div class="field">
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="password" required>
+      </div>
+
+      <div class="form-buttons">
+        <button type="button" class="secondary">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12h-15m0 0l6.75 6.75M4.5 12l6.75-6.75" />
+          </svg>          
+          Cancel
+        </button>
+
+        <button type="submit" class="primary">
+          Add
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="#fff" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>          
+        </button>
+      </div>
+    </form>
   </div>
 </div>
 {% endblock %}
