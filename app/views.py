@@ -76,3 +76,21 @@ def addSubmit(request):
     baseUrl = reverse("dashboard")
     queryString = urlencode({'success': 'Password added successfully.'})
     return redirect(f"{baseUrl}?{queryString}")
+
+def detail(request, id):
+    # If the user is not logged in, redirect to login page
+    if not request.user.is_authenticated:
+        return redirect(reverse("login"))
+    
+    # Check if the password exists
+    try:
+        password = Passwords.objects.get(id=id)
+    except Passwords.DoesNotExist:
+        return redirect(reverse("dashboard"))
+    
+    # Check if the password belongs to the user
+    if password.user != request.user:
+        return redirect(reverse("dashboard"))
+    
+    # Render the detail page
+    return render(request, "app/detail.html", {"password": password})
