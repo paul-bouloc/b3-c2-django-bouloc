@@ -73,3 +73,24 @@
   margin-top: 20px;
   box-sizing: border-box;
 }
+
+.edit-form .password-generation {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.edit-form .password-generation span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  color: var(--blue-500);
+  user-select: none;
+}
+
+.edit-form .password-generation span svg {
+  width: 20px;
+  height: 20px;
+}
