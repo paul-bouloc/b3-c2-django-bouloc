@@ -161,3 +161,44 @@ def editSubmit(request, id):
     baseUrl = reverse("detail", kwargs={"id": id})
     queryString = urlencode({'success': 'Password edited successfully.'})
     return redirect(f"{baseUrl}?{queryString}")
+
+def delete(request, id):
+    # If the user is not logged in, redirect to login page
+    if not request.user.is_authenticated:
+        return redirect(reverse("login"))
+    
+    # Check if the password exists
+    try:
+        password = Passwords.objects.get(id=id)
+    except Passwords.DoesNotExist:
+        return redirect(reverse("dashboard"))
+    
+    # Check if the password belongs to the user
+    if password.user != request.user:
+        return redirect(reverse("dashboard"))
+    
+    # Render the delete page
+    return render(request, "app/delete.html", {"password": password, "id": id})
+
+def deleteSubmit(request, id):
+    # If the user is not logged in, redirect to login page
+    if not request.user.is_authenticated:
+        return redirect(reverse("login"))
+    
+    # Check if the password exists
+    try:
+        password = Passwords.objects.get(id=id)
+    except Passwords.DoesNotExist:
+        return redirect(reverse("dashboard"))
+    
+    # Check if the password belongs to the user
+    if password.user != request.user:
+        return redirect(reverse("dashboard"))
+    
+    # Delete the data
+    password.delete()
+    
+    # Redirect to the dashboard
+    baseUrl = reverse("dashboard")
+    queryString = urlencode({'success': 'Password deleted successfully.'})
+    return redirect(f"{baseUrl}?{queryString}")
