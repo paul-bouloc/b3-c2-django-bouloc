@@ -12,7 +12,8 @@
   </div>
 
   <div class="add-form">
-    <form method="POST" action="add/submit" >
+    <form method="POST" action="submit" >
+      {% csrf_token %}
       <div class="field">
         <label for="name">Name</label>
         <input type="text" name="name" id="name" placeholder="Website" required>
