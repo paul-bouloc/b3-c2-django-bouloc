@@ -179,6 +179,7 @@ button, button.primary, input[type="submit"] {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-semibold);
   cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 button svg {

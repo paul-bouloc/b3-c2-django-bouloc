@@ -9,7 +9,15 @@ from app.models import Passwords
 
 
 def dashboard(request):
-    return render(request, "app/dashboard.html")
+    if request.user.is_authenticated:
+        passwords = Passwords.objects.filter(user=request.user)
+        # Truncate the website name to make it look better
+        for password in passwords:
+            password.website = password.website.replace("http://", "").replace("https://", "").replace("www.", "")
+            password.website = password.website.split("/")[0]
+        return render(request, "app/dashboard.html", {"passwords": passwords})
+    else:
+        return render(request, "app/dashboard.html")
   
 def register(request):
     if request.user.is_authenticated:

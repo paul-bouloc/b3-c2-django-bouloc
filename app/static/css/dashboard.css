@@ -22,7 +22,7 @@
 .password-list {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 20px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -31,11 +31,30 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   width: 100%;
   box-sizing: border-box;
   padding: var(--padding);
   border-radius: var(--rounded-md);
   background-color: var(--grey-100);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.password-list .password-item:hover {
+  background-color: var(--grey-50);
+}
+
+.password-list .password-item h6.name {
+  font-size: var(--text-sm);
+  color: var(--grey-700);
+}
+
+.password-list .password-item h6.website {
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-base);
+  color: var(--grey-400);
 }
 
 .password-list .password-item.no-password {

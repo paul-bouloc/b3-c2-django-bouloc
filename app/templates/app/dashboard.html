@@ -3,10 +3,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<style>
+  @import '../../static/css/dashboard.css'
+</style>
 {% if user.is_authenticated %}
-  <style>
-    @import '../../static/css/dashboard.css'
-  </style>
   <div class="dashboard-wrapper">
     <div class="dashboard-header">
       <h4>Passwords</h4>
@@ -19,9 +19,18 @@
     </div>
 
     <div class="password-list">
-      <div class="password-item no-password">
-        No password yet.
-      </div
+      {% if passwords|length > 0 %}
+        {% for password in passwords %}
+          <div class="password-item" onclick="location.href = '/detail/{{ password.id }}'">
+            <h6 class="name">{{ password.name }}</h6>
+            <h6 class="website">{{ password.website }}</h6>
+          </div>
+        {% endfor %}
+      {% else %}
+        <div class="password-item no-password">
+          No password yet.
+        </div>
+      {% endif %}
     </div>
   </div>
 {% else %}
