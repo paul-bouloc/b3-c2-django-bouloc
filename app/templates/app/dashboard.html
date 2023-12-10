@@ -22,8 +22,8 @@
       {% if passwords|length > 0 %}
         {% for password in passwords %}
           <div class="password-item" onclick="location.href = '/detail/{{ password.id }}'">
-            <h6 class="name">{{ password.name }}</h6>
-            <h6 class="website">{{ password.website }}</h6>
+            <h6 class="name">{{ password.name|title }}</h6>
+            <h6 class="website">{{ password.website|lower }}</h6>
           </div>
         {% endfor %}
       {% else %}
