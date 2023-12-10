@@ -21,3 +21,6 @@ def register(request):
             user = form.save()
             login(request, user)
             return redirect(reverse("dashboard"))
+        
+def add(request):
+    return render(request, "app/add.html")

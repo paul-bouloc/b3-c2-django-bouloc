@@ -1,0 +1,28 @@
+.add-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  max-width: 700px;
+  width: 100%;
+  padding: var(--padding);
+  box-sizing: border-box;
+  background-color: #fff;
+  border-radius: var(--rounded-3xl);
+}
+
+.add-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.add-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
