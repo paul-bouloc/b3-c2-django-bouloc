@@ -9,7 +9,7 @@ urlpatterns = [
     path("add/", views.add, name="add"),
     path("add/submit", views.addSubmit, name="addSubmit"),
     path("detail/<int:id>", views.detail, name="detail"),
-    # path("edit/<int:id>", views.edit, name="edit"),
-    # path("edit/submit", views.editSubmit, name="editSubmit"),
+    path("edit/<int:id>", views.edit, name="edit"),
+    path("edit/submit/<int:id>", views.editSubmit, name="editSubmit"),
     # path("delete/<int:id>", views.delete, name="delete"),
 ]

@@ -94,3 +94,70 @@ def detail(request, id):
     
     # Render the detail page
     return render(request, "app/detail.html", {"password": password})
+
+def edit(request, id):
+    # If the user is not logged in, redirect to login page
+    if not request.user.is_authenticated:
+        return redirect(reverse("login"))
+    
+    # Check if the password exists
+    try:
+        password = Passwords.objects.get(id=id)
+    except Passwords.DoesNotExist:
+        return redirect(reverse("dashboard"))
+    
+    # Check if the password belongs to the user
+    if password.user != request.user:
+        return redirect(reverse("dashboard"))
+    
+    # Render the edit page
+    return render(request, "app/edit.html", {"password": password, "id": id})
+
+def editSubmit(request, id):
+    # If the user is not logged in, redirect to login page
+    if not request.user.is_authenticated:
+        return redirect(reverse("login"))
+    
+    # Check if the password exists
+    try:
+        password = Passwords.objects.get(id=id)
+    except Passwords.DoesNotExist:
+        return redirect(reverse("dashboard"))
+    
+    # Check if the password belongs to the user
+    if password.user != request.user:
+        return redirect(reverse("dashboard"))
+    
+    # Check if the request is a POST request
+    if request.method != "POST":
+        return redirect(reverse("edit", kwargs={"id": id}))
+    
+    # Check if all fields are present
+    if 'name' not in request.POST or 'website' not in request.POST or 'login' not in request.POST or 'password' not in request.POST:
+        baseUrl = reverse("edit", kwargs={"id": id})
+        queryString = urlencode({'error': 'Please fill out all fields.'})
+        return redirect(f"{baseUrl}?{queryString}")
+    
+    # Build the data
+    post_name = request.POST["name"]
+    post_website = request.POST["website"]
+    post_login = request.POST["login"]
+    post_password = request.POST["password"]
+    
+    # Check if any fields are empty
+    if post_name == "" or post_website == "" or post_login == "" or post_password == "":
+        baseUrl = reverse("edit", kwargs={"id": id})
+        queryString = urlencode({'error': 'Please fill out all fields.'})
+        return redirect(f"{baseUrl}?{queryString}")
+    
+    # Update the data
+    password.name = post_name
+    password.website = post_website
+    password.login = post_login
+    password.password = post_password
+    password.save()
+    
+    # Redirect to the dashboard
+    baseUrl = reverse("detail", kwargs={"id": id})
+    queryString = urlencode({'success': 'Password edited successfully.'})
+    return redirect(f"{baseUrl}?{queryString}")
