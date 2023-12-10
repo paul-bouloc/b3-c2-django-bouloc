@@ -64,6 +64,10 @@
   user-select: none;
 }
 
+.edit-form form .field label.password-label #hidePassword:hover {
+  text-decoration: underline;
+}
+
 .edit-form form .form-buttons {
   display: flex;
   justify-content: space-between;
@@ -88,6 +92,10 @@
   cursor: pointer;
   color: var(--blue-500);
   user-select: none;
+}
+
+.edit-form .password-generation span:hover {
+  text-decoration: underline;
 }
 
 .edit-form .password-generation span svg {

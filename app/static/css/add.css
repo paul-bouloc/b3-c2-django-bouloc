@@ -64,6 +64,10 @@
   user-select: none;
 }
 
+.add-form form .field label.password-label #hidePassword:hover {
+  text-decoration: underline;
+}
+
 .add-form form .form-buttons {
   display: flex;
   justify-content: space-between;
@@ -72,4 +76,29 @@
   width: 100%;
   margin-top: 20px;
   box-sizing: border-box;
+}
+
+.add-form .password-generation {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.add-form .password-generation span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  color: var(--blue-500);
+  user-select: none;
+}
+
+.add-form .password-generation span:hover {
+  text-decoration: underline;
+}
+
+.add-form .password-generation span svg {
+  width: 20px;
+  height: 20px;
 }
