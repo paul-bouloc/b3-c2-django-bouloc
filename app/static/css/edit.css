@@ -48,6 +48,22 @@
   font-weight: var(--font-weight-semibold);
 }
 
+.edit-form form .field label.password-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.edit-form form .field label.password-label #hidePassword {
+  font-size: var(--font-size-sm);
+  cursor: pointer;
+  color: var(--blue-500);
+  user-select: none;
+}
+
 .edit-form form .form-buttons {
   display: flex;
   justify-content: space-between;
