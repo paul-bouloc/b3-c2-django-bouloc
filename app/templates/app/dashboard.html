@@ -34,10 +34,34 @@
     </div>
   </div>
   <div class="csv-support">
-    <a href="{% url 'register' %}">Import passwords (.csv)</a>
+    <a id="csvImportLink" href="{% url 'register' %}">Import passwords (.csv)</a>
     |
     <a href="{% url 'exportUserPasswords' %}">Download my data</a>
   </div>
+
+
+  <div class="import-form" style="display:none">
+    <form method="post" id="csvForm" enctype="multipart/form-data" action="{% url 'importUserPasswords' %}">
+      {% csrf_token %}
+      <input type="file" name="file" id="csvFile" style="" />
+      <button type="submit" id="csvSubmit" class="primary" title="Importer au format CSV">
+        Send
+      </button>
+    </form>
+  </div>
+
+
+  <script>
+  
+    document.getElementById('csvImportLink').addEventListener('click', function(e) {
+      e.preventDefault();
+      var fileInput = document.getElementById('csvFile');
+      fileInput.click();
+      fileInput.addEventListener('change', function() {
+        document.getElementById('csvForm').submit();
+      });
+    });
+  </script>
 {% else %}
   Hello, {{ user.username|default:'Guest' }}!
   This is the landing page.

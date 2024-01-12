@@ -14,4 +14,5 @@ urlpatterns = [
     path("delete/<int:id>", views.delete, name="delete"),
     path("delete/submit/<int:id>", views.deleteSubmit, name="deleteSubmit"),
     path("export/", views.exportUserPasswords, name="exportUserPasswords"),
+    path("import/", views.importUserPasswords, name="importUserPasswords"),
 ]
