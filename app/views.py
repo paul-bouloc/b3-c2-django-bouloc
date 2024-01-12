@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render
 from django.urls import reverse
 from app.forms import CustomUserCreationForm
 from app.models import Passwords
+from app.utils import decrypt, encrypt
 
 # Create your views here.
 
@@ -71,6 +72,8 @@ def addSubmit(request):
         queryString = urlencode({'error': 'Please fill out all fields.'})
         return redirect(f"{baseUrl}?{queryString}")
     
+    password = encrypt(password)
+    
     data = Passwords(user=user, name=name, website=website, login=login, password=password)
     data.save()
     baseUrl = reverse("dashboard")
@@ -92,6 +95,8 @@ def detail(request, id):
     if password.user != request.user:
         return redirect(reverse("dashboard"))
     
+    password.password = decrypt(password.password)
+    
     # Render the detail page
     return render(request, "app/detail.html", {"password": password})
 
@@ -109,6 +114,8 @@ def edit(request, id):
     # Check if the password belongs to the user
     if password.user != request.user:
         return redirect(reverse("dashboard"))
+    
+    password.password = decrypt(password.password)
     
     # Render the edit page
     return render(request, "app/edit.html", {"password": password, "id": id})
@@ -154,7 +161,7 @@ def editSubmit(request, id):
     password.name = post_name
     password.website = post_website
     password.login = post_login
-    password.password = post_password
+    password.password = encrypt(post_password)
     password.save()
     
     # Redirect to the dashboard
