@@ -1,5 +1,6 @@
 from urllib.parse import urlencode
 from django.contrib.auth import login
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from app.forms import CustomUserCreationForm
@@ -208,4 +209,87 @@ def deleteSubmit(request, id):
     # Redirect to the dashboard
     baseUrl = reverse("dashboard")
     queryString = urlencode({'success': 'Password deleted successfully.'})
+    return redirect(f"{baseUrl}?{queryString}")
+
+def exportUserPasswords(request):
+    # If the user is not logged in, redirect to login page
+    if not request.user.is_authenticated:
+        return redirect(reverse("login"))
+    
+    # Get the passwords
+    passwords = Passwords.objects.filter(user=request.user)
+    
+    # Build the CSV
+    csv = "Name,Website,Login,Password\n"
+    for password in passwords:
+        csv += f"{password.name},{password.website},{password.login},{decrypt(password.password)}\n"
+    
+    # Build the response
+    response = HttpResponse(csv, content_type="text/csv")
+    response["Content-Disposition"] = "attachment; filename=passwords.csv"
+    
+    # Return the response
+    return response
+
+def importUserPasswords(request):
+    # If the user is not logged in, redirect to login page
+    if not request.user.is_authenticated:
+        return redirect(reverse("login"))
+    
+    # Check if the request is a POST request
+    if request.method != "POST":
+        return redirect(reverse("dashboard"))
+    
+    # Check if the file is present
+    if 'file' not in request.FILES:
+        baseUrl = reverse("dashboard")
+        queryString = urlencode({'error': 'Please select a file to import.'})
+        return redirect(f"{baseUrl}?{queryString}")
+    
+    # Get the file
+    file = request.FILES["file"]
+    
+    # Check if the file is a CSV file
+    if file.name.split(".")[-1] != "csv":
+        baseUrl = reverse("dashboard")
+        queryString = urlencode({'error': 'Please select a CSV file.'})
+        return redirect(f"{baseUrl}?{queryString}")
+    
+    # Read the CSV
+    csv = file.read().decode("utf-8")
+    
+    # Split the CSV into lines
+    lines = csv.split("\n")
+    
+    # Remove the header
+    lines.pop(0)
+    
+    # Loop through the lines
+    for line in lines:
+        # Split the line into columns
+        columns = line.split(",")
+        
+        # Check if the line is empty
+        if columns == [""]:
+            continue
+        
+        # Build the data
+        name = columns[0]
+        website = columns[1]
+        login = columns[2]
+        password = encrypt(columns[3])
+        
+        # Check if any fields are empty
+        if name == "" or website == "" or login == "" or password == "":
+            baseUrl = reverse("dashboard")
+            queryString = urlencode({'error': 'Please fill out all fields.'})
+            return redirect(f"{baseUrl}?{queryString}")
+        
+        # Save the data
+        data = Passwords(user=request.user, name=name, website=website, login=login, password=password)
+        data.save()
+    
+    # Redirect to the dashboard
+    baseUrl = reverse("dashboard")
+    queryString = urlencode({'success': 'Passwords imported successfully.'})
     return redirect(f"{baseUrl}?{queryString}")
