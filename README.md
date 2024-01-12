@@ -12,8 +12,8 @@ Bienvenue sur le repository du projet Django "PasswordManager" réalisé dans le
  - [x] Modification de mdp
  - [x] Suppression de mdp : Permettez aux utilisateurs de modifier et de supprimer leurs propres sites.
  - [x] Interface utilisateur conviviale : Créez une interface utilisateur simple et intuitive à l'aide de templates Django.
- - [ ] (Supp.) Exporter ses mdps au format csv
- - [ ] (Supp.) Importer des mdps au format csv
+ - [x] (Supp.) Exporter ses mdps au format csv
+ - [x] (Supp.) Importer des mdps au format csv
 
 ## Fonctionnalités bonus
 
