@@ -1,5 +1,6 @@
 from urllib.parse import urlencode
 from django.contrib.auth import login
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.urls import reverse
 from app.forms import CustomUserCreationForm
@@ -209,3 +210,23 @@ def deleteSubmit(request, id):
     baseUrl = reverse("dashboard")
     queryString = urlencode({'success': 'Password deleted successfully.'})
     return redirect(f"{baseUrl}?{queryString}")
+
+def exportUserPasswords(request):
+    # If the user is not logged in, redirect to login page
+    if not request.user.is_authenticated:
+        return redirect(reverse("login"))
+    
+    # Get the passwords
+    passwords = Passwords.objects.filter(user=request.user)
+    
+    # Build the CSV
+    csv = "Name,Website,Login,Password\n"
+    for password in passwords:
+        csv += f"{password.name},{password.website},{password.login},{decrypt(password.password)}\n"
+    
+    # Build the response
+    response = HttpResponse(csv, content_type="text/csv")
+    response["Content-Disposition"] = "attachment; filename=passwords.csv"
+    
+    # Return the response
+    return response

@@ -12,5 +12,6 @@ urlpatterns = [
     path("edit/<int:id>", views.edit, name="edit"),
     path("edit/submit/<int:id>", views.editSubmit, name="editSubmit"),
     path("delete/<int:id>", views.delete, name="delete"),
-    path("delete/submit/<int:id>", views.deleteSubmit, name="deleteSubmit")
+    path("delete/submit/<int:id>", views.deleteSubmit, name="deleteSubmit"),
+    path("export/", views.exportUserPasswords, name="exportUserPasswords"),
 ]

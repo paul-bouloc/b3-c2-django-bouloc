@@ -36,7 +36,7 @@
   <div class="csv-support">
     <a href="{% url 'register' %}">Import passwords (.csv)</a>
     |
-    <a href="{% url 'register' %}">Download my data</a>
+    <a href="{% url 'exportUserPasswords' %}">Download my data</a>
   </div>
 {% else %}
   Hello, {{ user.username|default:'Guest' }}!
